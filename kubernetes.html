@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kubernetes-webgui</title>
+    <link rel="stylesheet" href="./stylesheet.css" />
+  </head>
+  <script>
+    function shash() {
+      var xhr = XMLHttpRequest();
+      var x = document.getElementById("value").value            
+      xhr.open("GET", "<your_ip>/cgi-bin/kub.py?x="+x, true);
+      xhr.send();
+      var final = xhr.responseText;
+      document.getElementById("value").innerHTML = final;
+    }
+
+    function shash1() {
+      document.getElementById("value").value = "";
+    }
+  </script>
+  <style>
+    * {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    section {
+      text-align: center;
+    }
+
+    button {
+      width: 8rem;
+    }
+  </style>
+  <body>
+    <section>
+      <h1>Your Kubernetes WebGui</h1>
+      <div>
+        Give your command here, and get your output, Please write the name of the pod, or the image, and be a little specific about your requirements.
+      </div>
+      <div>(ITS SO COOOOOL!)</div>
+    </section>
+    <br /><br /><br /><br />
+    <section>
+      <input type="text" id="value" />
+      <br /><br />
+      <button onclick="shash()">Run Command</button>
+      <button onclick="shash1()">Reset</button>
+    </section>
+  </body>
+</html>
